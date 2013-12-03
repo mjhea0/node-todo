@@ -9,4 +9,4 @@ a nice distraction.
 3. Start the server: `node app.js`
 4. View in browser at `http://localhost:1337`
 
-![node-todp]()
+![node-todp](https://raw.github.com/mjhea0/node-todo/master/node-todo.png)
