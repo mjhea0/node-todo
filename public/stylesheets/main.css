@@ -1,0 +1,30 @@
+body {
+  padding: 50px 10px;
+}
+
+.container {
+  max-width: 700px;
+}
+
+p.date {
+  font-style: italic;
+  font-weight: lighter;
+  color: #555;
+}
+
+.form-todo {
+  max-width: 700px;
+}
+
+table.todo {
+  max-width: 700px;
+  font-size: 1.25em;
+}
+
+.done {
+  color: #555;
+}
+
+#center {
+  text-align: center;
+}

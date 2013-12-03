@@ -1,0 +1,21 @@
+doctype 5
+html
+  head
+    title Pending Tasks
+    link(rel='stylesheet', 'href=http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')
+    script(src='/javascripts/moment.min.js')
+    script(src='/javascripts/main.js')
+    script(type='text/javascript')
+
+      $(document).ready(function() {
+        $('.date').text(function(index, oldvalue) {
+          return moment(oldvalue).fromNow();
+        });
+      });
+
+  body
+    block content
+    br

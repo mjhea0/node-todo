@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  .container
+    .well
+      h2 Pending Tasks
+
+      form.form-inline(action='', method='post', role='form')
+        .form-group
+          input.form-control.input-lg(type='text', name='newTodo', placeholder="Enter task description")
+        &nbsp;  
+        button.btn.btn-primary.btn-lg(type='submit', onclick='createTodo();') New
+        br
+        br
+        br
+        table(cellpadding='5').todo.table
+          thead
+            th
+            th Description
+            th Priority
+            th
+            th Last Updated
+          tbody  
+            - each todo in todos
+              tr
+                td
+                  input(type='checkbox',
+                    name='done' + todo.id,
+                    value=todo.done,
+                    checked=todo.done,
+                    onclick='saveTodo("' + todo.id + '");')
+                td
+                  case todo.priority
+                    when "0"
+                      - if (todo.done)
+                        span.done= todo.description
+                      - else
+                        span= todo.description
+                    when "1"
+                      - if (todo.done)
+                        span= todo.description
+                      - else
+                        span= todo.description
+                    when "2"
+                      - if (todo.done)
+                        span.done= todo.description
+                      - else
+                        span= todo.description
+                td#center
+                  -if (!todo.done)
+                    span= todo.priority
+                  -else
+                    a(href='#', onclick='deleteTodo("' + todo.id + '");') delete?
+                td
+                  -if (!todo.done)
+                    .todo_options
+                      a(href='#', onclick='priorityUp("' + todo.id + '");')
+                        span.glyphicon.glyphicon-chevron-up 
+                      a(href='#', onclick='priorityDown("' + todo.id + '");')
+                        span.glyphicon.glyphicon-chevron-down
+                  -else
+                    span
+                td
+                  p.date= todo.modified.toUTCString()
